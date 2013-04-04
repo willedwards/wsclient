@@ -1,4 +1,4 @@
-package com.company.api;
+package com.company.ws;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;

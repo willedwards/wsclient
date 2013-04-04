@@ -1,6 +1,6 @@
 package com.foo;
 
-import com.foo.client.AccountClientImpl;
+import com.foo.client.CarClientImpl;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -13,8 +13,8 @@ public class App {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("client-beans.xml");
 
         //CarService service = (CarService) ctx.getBean("carWebService");
-        //CarClientImpl service = (CarClientImpl) ctx.getBean("carClient");
-        AccountClientImpl service = (AccountClientImpl) ctx.getBean("accountClient");
+        CarClientImpl service = (CarClientImpl) ctx.getBean("carClient");
+        //AccountClientImpl service = (AccountClientImpl) ctx.getBean("accountClient");
 
         service.foo();
     }

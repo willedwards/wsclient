@@ -4,7 +4,7 @@ package com.foo.client;/**
  * Time: 16:30
  */
 
-import com.company.api.CarService;
+import com.company.ws.CarService;
 import org.apache.log4j.Logger;
 
 public class CarClientImpl

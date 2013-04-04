@@ -1,4 +1,4 @@
-package com.company.api;/**
+package com.company.ws;/**
  * Author: wge
  * Date: 04/04/2013
  * Time: 16:34

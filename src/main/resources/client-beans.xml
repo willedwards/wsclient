@@ -5,7 +5,7 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="carWebService" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
-        <property name="serviceInterface" value="com.company.api.CarService"/>
+        <property name="serviceInterface" value="com.company.ws.CarService"/>
         <property name="wsdlDocumentUrl" value="http://localhost:8080/car?wsdl"/>
         <property name="namespaceUri" value="http://ws.company.com/"/>
         <property name="serviceName" value="CarWSService"/>
@@ -19,7 +19,7 @@
 
 
     <bean id="accountWebService" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
-        <property name="serviceInterface" value="com.company.api.AccountService"/>
+        <property name="serviceInterface" value="com.company.ws.AccountService"/>
         <property name="wsdlDocumentUrl" value="http://localhost:8080/AccountServiceEndpoint?WSDL"/>
         <property name="namespaceUri" value="http://company.com/"/>
         <property name="serviceName" value="AccountService"/>

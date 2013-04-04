@@ -5,7 +5,7 @@ package com.foo.client;/**
  */
 
 import com.company.Account;
-import com.company.api.AccountService;
+import com.company.ws.AccountService;
 import org.apache.log4j.Logger;
 
 import java.util.List;
