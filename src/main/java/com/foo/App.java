@@ -12,8 +12,10 @@ public class App {
     public static void main(String[] args) {
 
         ApplicationContext ctx = new ClassPathXmlApplicationContext("client-beans.xml");
+
         CarClientImpl service = (CarClientImpl) ctx.getBean("carClient");
-        service.foo();
+
+        service.fillUp();
 
     }
 }

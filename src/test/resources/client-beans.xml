@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- notice the carWebService is replace by an in memory mock implementation
+         This can be refined to imitate the real service by adding more unit tests.
+    -->
+
+    <bean id="carWebServiceMock" class="com.company.mock.RollsRoyceServiceInMemory"/>
+
+    <!-- always use constructor args for immutability -->
+    <bean id="carClient" class="com.foo.client.CarClientImpl">
+        <constructor-arg ref="carWebServiceMock"/>
+    </bean>
+
+
+</beans>

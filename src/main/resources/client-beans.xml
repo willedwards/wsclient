@@ -6,7 +6,7 @@
 
     <bean id="carWebService" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
         <property name="serviceInterface" value="com.company.ws.CarService"/>
-        <property name="wsdlDocumentUrl" value="http://localhost:8080/car?wsdl"/>
+        <property name="wsdlDocumentUrl" value="http://localhost:8080/carService?wsdl"/>
         <property name="namespaceUri" value="http://ws.company.com/"/>
         <property name="serviceName" value="CarWSService"/>
         <property name="portName" value="CarWSPort"/>
