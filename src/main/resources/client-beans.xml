@@ -5,25 +5,28 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="carWebService" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
-        <property name="serviceInterface" value="com.company.api.Car"/>
+        <property name="serviceInterface" value="com.company.api.CarService"/>
         <property name="wsdlDocumentUrl" value="http://localhost:8080/car?wsdl"/>
         <property name="namespaceUri" value="http://ws.company.com/"/>
         <property name="serviceName" value="CarWSService"/>
         <property name="portName" value="CarWSPort"/>
     </bean>
 
-<!--
-    <bean id="client" class="com.foo.client.CarServiceImpl">
+    <bean id="carClient" class="com.foo.client.CarClientImpl">
         <constructor-arg ref="carWebService"/>
     </bean>
-    -->
-<!--
+
+
+
     <bean id="accountWebService" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
-        <property name="serviceInterface" value="com.company.AccountService"/>
+        <property name="serviceInterface" value="com.company.api.AccountService"/>
         <property name="wsdlDocumentUrl" value="http://localhost:8080/AccountServiceEndpoint?WSDL"/>
-        <property name="namespaceUri" value="http://ws.company.com/"/>
+        <property name="namespaceUri" value="http://company.com/"/>
         <property name="serviceName" value="AccountService"/>
         <property name="portName" value="AccountServiceEndpointPort"/>
     </bean>
-    -->
+
+    <bean id="accountClient" class="com.foo.client.AccountClientImpl">
+        <constructor-arg ref="accountWebService"/>
+    </bean>
 </beans>

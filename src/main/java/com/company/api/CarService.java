@@ -4,8 +4,8 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 @WebService
-public interface Car
+public interface CarService
 {
-    @WebMethod(operationName="getModel")
+    @WebMethod
     String getModel();
 }
