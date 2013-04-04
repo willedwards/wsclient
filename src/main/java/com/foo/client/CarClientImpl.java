@@ -4,6 +4,7 @@ package com.foo.client;/**
  * Time: 16:30
  */
 
+import com.company.Petrol;
 import com.company.ws.CarService;
 import org.apache.log4j.Logger;
 
@@ -20,6 +21,13 @@ public class CarClientImpl
     public void foo() {
             String model = service.getModel();
             log.info("model = " + model);
+
+            Petrol fuel = new Petrol();
+            fuel.litres = 5.0;
+            service.addPetrol(fuel);
+
+            Boolean isFull = service.isFull();
+
     }
 
 }

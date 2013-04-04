@@ -9,14 +9,12 @@ public class App {
 
     private static final Logger log = Logger.getLogger(App.class);
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
+
         ApplicationContext ctx = new ClassPathXmlApplicationContext("client-beans.xml");
-
-        //CarService service = (CarService) ctx.getBean("carWebService");
         CarClientImpl service = (CarClientImpl) ctx.getBean("carClient");
-        //AccountClientImpl service = (AccountClientImpl) ctx.getBean("accountClient");
-
         service.foo();
+
     }
 }
 
