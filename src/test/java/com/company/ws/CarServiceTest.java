@@ -5,11 +5,14 @@ package com.company.ws;/**
  */
 
 import com.company.Petrol;
-import com.company.mock.RollsRoyceServiceInMemory;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import static org.junit.Assert.assertEquals;
 
 public class CarServiceTest
 {
@@ -19,13 +22,15 @@ public class CarServiceTest
 
     @Before
     public void setUp() throws Exception
-    {
-        classUnderTest = new RollsRoyceServiceInMemory();
+    {   ApplicationContext ctx = new ClassPathXmlApplicationContext("client-beans.xml");
+
+        classUnderTest = (CarService) ctx.getBean("carWebService");
     }
 
     @After
     public void tearDown() throws Exception
     {
+        classUnderTest.drainTank();
         classUnderTest = null;
     }
 
@@ -33,8 +38,8 @@ public class CarServiceTest
     public void testGetModel()
     {
         String model = classUnderTest.getModel();
-        assert(model !=null);
-        assert(model.equals("Bently"));
+        assert (model != null);
+        assertEquals(model, "Bentley");
     }
 
 
@@ -45,7 +50,7 @@ public class CarServiceTest
         classUnderTest.addPetrol(buildAmountInLitres(40.0));
 
         //inspect
-        assert(classUnderTest.isFull() == Boolean.FALSE);
+        assert (classUnderTest.isFull() == Boolean.FALSE);
     }
 
     @Test
@@ -55,19 +60,20 @@ public class CarServiceTest
         classUnderTest.addPetrol(buildAmountInLitres(30.0));
 
         //inspect
-        assert(classUnderTest.isFull() == Boolean.FALSE);
+        assert (classUnderTest.isFull() == Boolean.FALSE);
     }
 
-        //This test fails if added in. Which shows that the Mock is wrong, and remodelling is needed.
-//    @Test
-//    public void testAdd120LitresOfPetrol()
-//    {
-//        //execute
-//        classUnderTest.addPetrol(buildAmountInLitres(120.0));
-//
-//        //inspect
-//        assert(classUnderTest.isFull() == Boolean.TRUE);
-//    }
+    //This test fails if added in. Which shows that the Mock is wrong, and remodelling is needed.
+    @Test
+    public void testAdd120LitresOfPetrol()
+    {
+        //execute
+        classUnderTest.drainTank();
+        classUnderTest.addPetrol(buildAmountInLitres(120.0));
+
+        //inspect
+        assert (classUnderTest.isFull() == Boolean.TRUE);
+    }
 
     private static Petrol buildAmountInLitres(Double amount)
     {

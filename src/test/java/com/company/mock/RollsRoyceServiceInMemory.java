@@ -1,4 +1,6 @@
-package com.company.mock;/**
+package com.company.mock;
+
+/**
  * Author: wge
  * Date: 04/04/2013
  * Time: 22:10
@@ -20,19 +22,25 @@ public class RollsRoyceServiceInMemory implements CarService
     @Override
     public String getModel()
     {
-        return "Bently";
+        return "Bentley";
     }
 
     @Override
     public void addPetrol(Petrol petrol)
     {
         //lets just keep adding 30 each time
-        fuelLevel += 30;
+        fuelLevel += petrol.litres;
     }
 
     @Override
     public Boolean isFull()
     {
-        return (fuelLevel > MAX_LIMIT);
+        return (fuelLevel >= MAX_LIMIT);
+    }
+
+    @Override
+    public void drainTank()
+    {
+        fuelLevel = 0.0;
     }
 }

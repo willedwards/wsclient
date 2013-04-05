@@ -8,12 +8,6 @@
          This can be refined to imitate the real service by adding more unit tests.
     -->
 
-    <bean id="carWebServiceMock" class="com.company.mock.RollsRoyceServiceInMemory"/>
-
-    <!-- always use constructor args for immutability -->
-    <bean id="carClient" class="com.foo.client.CarClientImpl">
-        <constructor-arg ref="carWebServiceMock"/>
-    </bean>
-
+    <bean id="carWebService" class="com.company.mock.RollsRoyceServiceInMemory"/>
 
 </beans>

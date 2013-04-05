@@ -16,4 +16,7 @@ public interface CarService
 
     @WebMethod
     Boolean isFull();
+
+    @WebMethod
+    void drainTank();
 }
